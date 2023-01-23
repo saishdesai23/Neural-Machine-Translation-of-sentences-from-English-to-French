@@ -5,3 +5,11 @@ Developing a Transformer based Neural Machine Translation Model (NMT) for transl
 1) English to French
 
 2) English to German
+
+Instruction to run the code
+
+1) Clone the repository and unzip the folder
+
+2) Run the "Neural Machine Translation.ipynb" jupyter notebook
+
+

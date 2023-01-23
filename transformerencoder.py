@@ -26,21 +26,18 @@ class TransformerEncoder(nn.Module):
             max_len_src: maximum length of the source sentences
             device: the working device (you may need to map your postional embedding to this device)
         """
-        self.src_vocab = src_vocab # Do not change
+        self.src_vocab = src_vocab
         src_vocab_size = len(src_vocab)
 
-        # Create positional embedding matrix
+        # Creating positional embedding matrix
         self.position_embedding = create_positional_embedding(max_len_src, embedding_dim).to(device)
-        # self.position_embedding = torch.unsqueeze(self.position_embedding, 1)
-        self.register_buffer('positional_embedding', self.position_embedding) # this informs the model that position_embedding is not a learnable parameter
-
-        ### TODO ###
-        # Initialize embedding layer
+        self.register_buffer('positional_embedding', self.position_embedding)
+        
+        # Initializing embedding layer
         self.embedding = nn.Embedding(src_vocab_size, embedding_dim)
         # Dropout layer
         self.dropout = nn.Dropout(p=0.3)
-        # Initialize a nn.TransformerEncoder model (you'll need to use embedding_dim,
-        # num_layers, num_heads, & dim_feedforward here)
+        # Initializing a nn.TransformerEncoder model 
         encoder_layer = nn.TransformerEncoderLayer(embedding_dim, num_heads, dim_feedforward, device=self.device)
         self.transformer_model = nn.TransformerEncoder(encoder_layer, num_layers)
       
@@ -61,31 +58,19 @@ class TransformerEncoder(nn.Module):
             x: [max_len, batch_size]
         Returns:
             output: [max_len, batch_size, embed_dim]
-        Pseudo-code (note: x refers to the original input to this function throughout the pseudo-code):
-        - Pass x through the word embedding
-        - Add positional embedding to the word embedding, then apply dropout
-        - Call make_src_mask(x) to compute a mask: this tells us which indexes in x
-          are padding, which we want to ignore for the self-attention
-        - Call the encoder, with src_key_padding_mask = src_mask
         """
         output = None
 
-        ### TODO ###
         x1 = self.embedding(x)
         self.position_embedding = torch.permute(self.position_embedding, (1, 0, 2))
         if self.position_embedding.size()[1] < x1.size()[1]:
           d = x1.size()[1]- self.position_embedding.size()[1]
-          # print(self.position_embedding.size())
-          # print(torch.zeros(1, d, x1.size()[2]).size())
           self.position_embedding = torch.cat((self.position_embedding, torch.zeros(1, d, x1.size()[2]).to(self.device)), dim = 1)
-        # print(self.position_embedding.size())
-        # print(x.size())
+        
         x1 = x1.to(self.device) + self.position_embedding[:,:x1.size(1), :]
         self.position_embedding = torch.permute(self.position_embedding, (1, 0, 2))
         x1 = self.dropout(x1)
         src_mask  = self.make_src_mask(x)
-        # src_mask = src_mask.transpose(1,0)
-        # print(src_mask)
         output = self.transformer_model(x1, src_key_padding_mask = src_mask)
         return output
 

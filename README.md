@@ -6,7 +6,7 @@ Developing a Transformer based Neural Machine Translation Model (NMT) for transl
 
 2) English to German
 
-Instruction to run the code
+**Instruction to run the code**
 
 1) Clone the repository and unzip the folder
 

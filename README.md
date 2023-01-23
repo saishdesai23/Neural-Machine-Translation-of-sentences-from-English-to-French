@@ -1,6 +1,6 @@
 # Neural-Machine-Translation-of-sentences-from-Spanish-to-English
 
-[alt text](architecture.png)
+![alt text](architecture.png)
 
 Developing a Transformer based Neural Machine Translation Model (NMT) for translation of senteces from 
 

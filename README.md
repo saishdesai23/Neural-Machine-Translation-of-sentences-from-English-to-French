@@ -4,6 +4,10 @@ We have implemented Machine Translation at sentence level using the following de
 
 1) RNN
 
+<p align="center">
+  <img width="300" height="450" src="[https://miro.medium.com/max/856/1*ZCFSvkKtppgew3cc7BIaug.png](https://machinelearningmastery.com/the-bahdanau-attention-mechanism/)">
+</p>
+
 2) Transformer
 
 <p align="center">

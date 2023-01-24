@@ -1,5 +1,6 @@
 # Neural Machine Translation of sentences from English to French
 
+## Introduction
 In this project we have conducted a literature survey to study different model architectures used for implementing the task of Neural Machine Translation. Using this research, we have implemented this Machine Translation at sentence level using the following deep learning architectures - 
 
 1) RNN with Bahadanu attention

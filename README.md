@@ -1,4 +1,10 @@
-# Neural-Machine-Translation-of-sentences-from-Spanish-to-English
+# Neural-Machine-Translation-of-sentences-from-English-to_French
+
+We have implemented Machine Translation at sentence level using the following deep learning architectures - 
+
+1) RNN
+
+2) Transformer
 
 <p align="center">
   <img width="300" height="450" src="https://miro.medium.com/max/856/1*ZCFSvkKtppgew3cc7BIaug.png">

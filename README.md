@@ -20,6 +20,8 @@ Following translation tasks have been implemented using the mentioned architectu
 
 2) English to German
 
+The models have been evaluated using the BLEU score performance metric.
+
 **Instruction to run the code**
 
 1) Clone the repository and unzip the folder

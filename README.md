@@ -5,7 +5,7 @@ We have implemented Machine Translation at sentence level using the following de
 1) RNN
 
 <p align="center">
-  <img width="300" height="450" src="https://machinelearningmastery.com/the-bahdanau-attention-mechanism/">
+  <img width="300" height="450" src="https://machinelearningmastery.com/wp-content/uploads/2021/09/bahdanau_1.png">
 </p>
 
 2) Transformer

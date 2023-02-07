@@ -45,15 +45,6 @@ class RnnDecoder(nn.Module):
             context_vector: Context vector, according to formula; [batch_size, hidden_units]
             attention_weights: The attention weights you have calculated; [batch_size, max_len_src, 1]
 
-        Pseudo-code:
-            (1) Compute the attention scores for dec_hs & enc_output
-                    - Hint: You may need to permute the dimensions of the tensors in order to pass them through linear layers
-                    - Output size: [batch_size, max_len_src, 1]
-            (2) Compute attention_weights by taking a softmax over your scores to normalize the distribution (Make sure that after softmax the normalized scores add up to 1)
-                    - Output size: [batch_size, max_len_src, 1]
-            (3) Compute context_vector from attention_weights & enc_output
-                    - Hint: You may find it helpful to use torch.sum & element-wise multiplication (* operator)
-            (4) Return context_vector & attention_weights
         '''      
         context_vector, attention_weights = None, None
         

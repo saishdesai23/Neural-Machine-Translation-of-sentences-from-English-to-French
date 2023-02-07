@@ -20,7 +20,6 @@ class RnnEncoder(nn.Module):
         self.src_vocab = src_vocab # Do not change
         vocab_size = len(src_vocab)
 
-        ### TODO ###
         self.embedding_dim = embedding_dim
         # Initialize embedding layer
         self.embedding = nn.Embedding(vocab_size, embedding_dim)
@@ -43,7 +42,6 @@ class RnnEncoder(nn.Module):
         """
         output, hidden_state = None, None
 
-        ### TODO ###
         x = self.embedding(x)
         output, hidden_state = self.gru(x, hidden_state)
         return output, hidden_state
